@@ -4,8 +4,17 @@ from telegram.ext import Updater, CommandHandler
 # Настройки прокси
 PROXY = {'proxy_url': 'socks5://t1.learn.python.ru:1080', 'urllib3_proxy_kwargs': {'username': 'learn', 'password': 'python'}}
 
+import logging
+logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s',
+					level=logging.INFO,
+					filename='logs/bot.log'
+					)
+
 def greet_user(bot, update):
-	print('Привет!')
+	text = 'Привет!'
+	print(text)
+	update.message.reply_text(text)
+	# print('Привет!')
 
 # Функция, которая соединяется с платформой Telegram, "тело" нашего бота
 def main():
